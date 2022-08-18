@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+      }
+      .hello {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('header'); -%>
+    <div class="hello">
+      <h1>Home</h1>
+      <p><%= homeContent %></p>
+      <% posts.forEach(function(post){%>
+      <h1><%=post.inputTitle %></h1>
+      <p>
+        <%=post.inputContent.substring(0,50) + "..."%>
+        <a href="/posts/<%=post.inputTitle %>">Read More</a>
+      </p>
+      <% });%>
+    </div>
+    <%- include('footer'); -%>
+  </body>
+</html>
